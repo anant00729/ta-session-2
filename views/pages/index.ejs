@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="table_wrapper">Hello all from ejs</h1>
+  <table>
+    <% for(var i=0; i < student_list.length; i++) { %>
+       <tr>
+         <td><%= student_list[i].id %></td>
+         <td><%= student_list[i].name %></td>
+         <td><%= student_list[i].hair_color %></td>
+         <td><%= student_list[i].height %></td>
+         <td><%= student_list[i].weight %></td>
+         <td>
+          <form action="/deleteStudent/<%=student_list[i].id%>" method="post">
+              <input type="submit" name="delete" value="delete"></input>
+          </form>
+        </td>
+       </tr>
+    <% } %>
+  </table>
+
+
+  <a href="/updatePage">Update</a>
+  <a href="/insertPage">Add Student</a>
+</body>
+</html>
